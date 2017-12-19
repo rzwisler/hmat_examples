@@ -1,0 +1,32 @@
+In our base configuration we have two proximity domains, 0 and 1, each with a
+CPU and memory local to that CPU:
+
++------------------+     +------------------+
+|Proximity Domain 0|     |Proximity Domain 1|
+|CPU 0             +-----+CPU 1             |
+|Memory for CPU 0  |     |Memory for CPU 1  |
++------------------+     +------------------+
+
+The SRAT and HMAT in this sample modify that configuration by moving the
+memory into four memory-only NUMA nodes, two of which represent normal DRAM
+and two which represent High-Bandwidth Memory.  One of each type is assigned
+as local to each CPU:
+
++------------------+     +------------------+
+|Proximity Domain 2|     |Proximity Domain 3|
+|MEM local to CPU 0|     |MEM local to CPU 1|
++--------+---------+     +--------+---------+
+         |                        |
++--------+---------+     +--------+---------+
+|Proximity Domain 0|     |Proximity Domain 1|
+|CPU 0             +-----+CPU 1             |
++--------+---------+     +--------+---------+
+         |                        |
++--------+---------+     +--------+---------+
+|Proximity Domain 4|     |Proximity Domain 5|
+|HBM local to CPU 0|     |HBM local to CPU 1|
++------------------+     +------------------+
+
+We pretend that the memory in proximity domains 4 and 5 is High-Bandwidth
+Memory, so in the HMAT we will double the read and write bandwidth for this
+memory versus the memory found in NUMA nodes 2 and 3.

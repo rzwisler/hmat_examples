@@ -12,7 +12,9 @@ To be able to override the HMAT ACPI table you'll also need this patch from Dan 
 
 https://lists.01.org/pipermail/linux-nvdimm/2017-December/013545.html
 
-This patch will be folded into later versions of the HMAT series.
+You can find a git tree with both of these patches here:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/zwisler/linux.git/log/?h=hmat_v3_hmat_override
 
 ## System Configuration
 

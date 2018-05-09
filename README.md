@@ -55,6 +55,8 @@ Formatted output:  SRAT.dsl - 7616 bytes
 ```
 Then compare the resulting SRAT.dsl file with the [SRAT.dsl](/SRAT.dsl) provided in the root of this repo.  If the memory regions in your setup have different physical addresses then you will need to modify the SRAT and HMAT tables in the examples accordingly.
 
+__Important:__ To have the ACPI override code in the kernel accept my table instead of the one provided by the system, I needed to increment the "Oem Revision" field in the table header.
+
 These examples were created using QEMU 2.10.1, though I would bet they will work with other versions as well.
 
 ## Creating the Sample Configurations
